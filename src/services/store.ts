@@ -1,5 +1,7 @@
 import {
   AgencySettings,
+  DeveloperProfile,
+  LegalConfig,
   ContactMessage,
   InternalPaymentStatus,
   PortfolioItem,
@@ -24,6 +26,32 @@ export function generateReferenceCode(prefix: 'VP-REQ' | 'VP-PRJ' | 'VP-MSG'): s
   return `${prefix}-${random}`;
 }
 
+const DEFAULT_DEVELOPER: DeveloperProfile = {
+  name: 'SRIJAL KUMAR',
+  role: 'Founder & Developer, VyapaarPro',
+  location: 'BIHAR, INDIA',
+  bio: 'Founder and software developer behind VyapaarPro. Dedicated to building practical, accessible, and high-performance digital solutions for clients ranging from creators and local shops to growing startups and businesses. Focused on direct collaboration, clean architecture, and transparent milestone delivery.',
+  focus: [
+    'Web Development',
+    'Android / App Development',
+    'UI/UX Design',
+    'Digital Products',
+    'Custom Software Solutions',
+  ],
+  avatar_url: '',
+  github: '',
+  instagram: '',
+  linkedin: '',
+  twitter: '',
+};
+
+const DEFAULT_LEGAL: LegalConfig = {
+  governing_jurisdiction: '[Jurisdiction of Bihar / India]',
+  effective_date: 'January 1, 2026',
+  last_updated: 'September 2026',
+  legal_notice: 'Notice: This legal text is an operational policy template. Please review and customize according to your specific registered entity and local regulations before public enforcement.',
+};
+
 const DEFAULT_SETTINGS: AgencySettings = {
   name: 'VyapaarPro',
   tagline: 'High-Performance Digital Engineering for Modern Businesses',
@@ -32,15 +60,19 @@ const DEFAULT_SETTINGS: AgencySettings = {
   whatsapp: '+91 98765 43210',
   address: 'Indiranagar 100ft Road, Bangalore, Karnataka 560038',
   description:
-    'VyapaarPro is an elite digital engineering & creative agency. We build bespoke business websites, custom web applications, mobile apps, e-commerce systems, and full-spectrum digital branding to help enterprises scale sustainably.',
+    'VyapaarPro provides digital solutions and services for individuals, creators, startups, shops, businesses, and organizations. We build bespoke business websites, custom web applications, mobile apps, e-commerce systems, and full-spectrum digital branding to help enterprises scale sustainably.',
   footer_text:
-    '© 2026 VyapaarPro Digital Agency. All rights reserved. Every client solution is custom-engineered and deployed independently.',
+    `© ${new Date().getFullYear()} VyapaarPro. All rights reserved. Every client solution is custom-engineered and deployed independently.`,
+  logo_url: '',
+  favicon_url: '',
   social: {
-    twitter: 'https://twitter.com/vyapaarpro',
-    linkedin: 'https://linkedin.com/company/vyapaarpro',
-    github: 'https://github.com/vyapaarpro',
-    instagram: 'https://instagram.com/vyapaarpro',
+    twitter: '',
+    linkedin: '',
+    github: '',
+    instagram: '',
   },
+  developer: DEFAULT_DEVELOPER,
+  legal: DEFAULT_LEGAL,
 };
 
 const DEFAULT_CATEGORIES: ServiceCategory[] = [
@@ -568,14 +600,28 @@ export const dataService = {
           .eq('key', 'agency_profile')
           .maybeSingle();
         if (!error && data?.value) {
-          writeStorage(STORAGE_KEYS.SETTINGS, data.value);
-          return data.value as AgencySettings;
+          const merged: AgencySettings = {
+            ...DEFAULT_SETTINGS,
+            ...data.value,
+            developer: { ...DEFAULT_DEVELOPER, ...(data.value.developer || {}) },
+            legal: { ...DEFAULT_LEGAL, ...(data.value.legal || {}) },
+            social: { ...DEFAULT_SETTINGS.social, ...(data.value.social || {}) },
+          };
+          writeStorage(STORAGE_KEYS.SETTINGS, merged);
+          return merged;
         }
       } catch (err) {
         console.warn('Supabase settings query fallback:', err);
       }
     }
-    return readStorage<AgencySettings>(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
+    const raw = readStorage<AgencySettings>(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
+    return {
+      ...DEFAULT_SETTINGS,
+      ...raw,
+      developer: { ...DEFAULT_DEVELOPER, ...(raw.developer || {}) },
+      legal: { ...DEFAULT_LEGAL, ...(raw.legal || {}) },
+      social: { ...DEFAULT_SETTINGS.social, ...(raw.social || {}) },
+    };
   },
 
   async saveSettings(settings: AgencySettings): Promise<{ success: boolean; error?: string }> {

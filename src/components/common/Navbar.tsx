@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useAuth, AUTHORIZED_ADMIN_EMAIL } from '../../contexts/AuthContext';
 import { useSettings } from '../../contexts/SettingsContext';
+import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
   onOpenGetStarted?: () => void;
@@ -53,19 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGetStarted }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-violet-500 flex items-center justify-center text-white shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition-transform duration-300">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xl font-extrabold tracking-tight text-white flex items-center">
-                Vyapaar<span className="text-indigo-400">Pro</span>
-              </span>
-              <span className="text-[10px] font-medium text-slate-400 block -mt-1 tracking-wider uppercase">
-                Digital Services Agency
-              </span>
-            </div>
-          </Link>
+          <BrandLogo size="md" variant="default" />
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">

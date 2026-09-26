@@ -10,18 +10,42 @@ VALUES (
   'agency_profile',
   '{
     "name": "VyapaarPro",
-    "tagline": "Crafting High-Performance Digital Solutions for Modern Businesses",
+    "tagline": "High-Performance Digital Engineering for Modern Businesses",
     "email": "kumarsrijal732@gmail.com",
     "phone": "+91 98765 43210",
     "whatsapp": "+91 98765 43210",
     "address": "Indiranagar 100ft Road, Bangalore, Karnataka 560038",
-    "description": "VyapaarPro is an elite digital engineering & creative agency. We build bespoke business websites, custom web applications, mobile apps, e-commerce systems, and full-spectrum digital branding to help enterprises scale sustainably.",
-    "footer_text": "© 2026 VyapaarPro Digital Agency. All rights reserved. Transforming business ideas into production reality.",
+    "description": "VyapaarPro provides digital solutions and services for individuals, creators, startups, shops, businesses, and organizations. We build bespoke business websites, custom web applications, mobile apps, e-commerce systems, and full-spectrum digital branding to help enterprises scale sustainably.",
+    "footer_text": "© 2026 VyapaarPro. All rights reserved. Every client solution is custom-engineered and deployed independently.",
     "social": {
-      "twitter": "https://twitter.com/vyapaarpro",
-      "linkedin": "https://linkedin.com/company/vyapaarpro",
-      "github": "https://github.com/vyapaarpro",
-      "instagram": "https://instagram.com/vyapaarpro"
+      "twitter": "",
+      "linkedin": "",
+      "github": "",
+      "instagram": ""
+    },
+    "developer": {
+      "name": "SRIJAL KUMAR",
+      "role": "Founder & Developer, VyapaarPro",
+      "location": "BIHAR, INDIA",
+      "bio": "Founder and software developer behind VyapaarPro. Dedicated to building practical, accessible, and high-performance digital solutions for clients ranging from creators and local shops to growing startups and businesses. Focused on direct collaboration, clean architecture, and transparent milestone delivery.",
+      "focus": [
+        "Web Development",
+        "Android / App Development",
+        "UI/UX Design",
+        "Digital Products",
+        "Custom Software Solutions"
+      ],
+      "avatar_url": "",
+      "github": "",
+      "instagram": "",
+      "linkedin": "",
+      "twitter": ""
+    },
+    "legal": {
+      "governing_jurisdiction": "[Jurisdiction of Bihar / India]",
+      "effective_date": "January 1, 2026",
+      "last_updated": "September 2026",
+      "legal_notice": "Notice: This legal text is an operational policy template. Please review and customize according to your specific registered entity and local regulations before public enforcement."
     }
   }'::jsonb
 )

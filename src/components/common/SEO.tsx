@@ -29,6 +29,17 @@ export const SEO: React.FC<SEOProps> = ({ title, description }) => {
 
     let ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute('content', pageDesc);
+
+    const iconUrl = settings?.favicon_url || settings?.logo_url;
+    if (iconUrl) {
+      let linkIcon = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
+      if (!linkIcon) {
+        linkIcon = document.createElement('link');
+        linkIcon.rel = 'icon';
+        document.head.appendChild(linkIcon);
+      }
+      linkIcon.href = iconUrl;
+    }
   }, [title, description, settings]);
 
   return null;

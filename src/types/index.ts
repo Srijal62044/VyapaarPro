@@ -202,6 +202,26 @@ export interface ContactMessage {
   created_at: string;
 }
 
+export interface DeveloperProfile {
+  name: string;
+  role: string;
+  location: string;
+  bio: string;
+  focus: string[];
+  avatar_url?: string;
+  github?: string;
+  instagram?: string;
+  linkedin?: string;
+  twitter?: string;
+}
+
+export interface LegalConfig {
+  governing_jurisdiction: string;
+  effective_date: string;
+  last_updated: string;
+  legal_notice: string;
+}
+
 export interface AgencySettings {
   name: string;
   tagline: string;
@@ -211,12 +231,16 @@ export interface AgencySettings {
   address: string;
   description: string;
   footer_text: string;
+  logo_url?: string;
+  favicon_url?: string;
   social: {
     twitter?: string;
     linkedin?: string;
     github?: string;
     instagram?: string;
   };
+  developer?: DeveloperProfile;
+  legal?: LegalConfig;
 }
 
 export interface NotificationItem {

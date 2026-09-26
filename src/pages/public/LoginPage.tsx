@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { Sparkles, ArrowRight, Shield, User, Lock, Mail } from 'lucide-react';
 import { useAuth, isAuthorizedAdminEmail, AUTHORIZED_ADMIN_EMAIL } from '../../contexts/AuthContext';
 import { SEO } from '../../components/common/SEO';
+import { BrandLogo } from '../../components/common/BrandLogo';
 
 export const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -47,13 +48,10 @@ export const LoginPage: React.FC = () => {
       <div className="w-full max-w-md">
         {/* Card */}
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
-          <div className="text-center">
-            <Link to="/" className="inline-flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white">
-                <Sparkles className="w-4 h-4" />
-              </div>
-              <span className="text-lg font-bold text-white">VyapaarPro</span>
-            </Link>
+          <div className="text-center flex flex-col items-center">
+            <div className="mb-4">
+              <BrandLogo size="md" variant="default" />
+            </div>
             <h1 className="text-xl sm:text-2xl font-bold text-white">Sign In</h1>
             <p className="text-xs text-slate-400 mt-1">
               Sign in with your registered email and password.

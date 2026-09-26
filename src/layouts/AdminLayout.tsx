@@ -18,6 +18,7 @@ import {
   Lock,
 } from 'lucide-react';
 import { useAuth, AUTHORIZED_ADMIN_EMAIL } from '../contexts/AuthContext';
+import { BrandLogo } from '../components/common/BrandLogo';
 
 export const AdminLayout: React.FC = () => {
   const { profile, isAdmin, isLoading, logout } = useAuth();
@@ -128,17 +129,7 @@ export const AdminLayout: React.FC = () => {
       <aside className="hidden md:flex flex-col w-64 bg-slate-900 border-r border-slate-800 shrink-0 min-h-screen">
         {/* Brand */}
         <div className="p-6 border-b border-slate-800">
-          <Link to="/admin" className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-lg bg-violet-600 flex items-center justify-center text-white shadow-md shadow-violet-600/30">
-              <Shield className="w-4 h-4" />
-            </div>
-            <div>
-              <span className="text-base font-bold text-white">VyapaarPro</span>
-              <span className="text-[10px] text-violet-400 block -mt-1 font-semibold uppercase tracking-wider">
-                Operations Admin
-              </span>
-            </div>
-          </Link>
+          <BrandLogo size="sm" variant="admin" linkTo="/admin" />
         </div>
 
         {/* Admin Persona badge */}
