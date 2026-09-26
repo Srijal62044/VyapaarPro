@@ -20,11 +20,10 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenGetStarted }) => {
-  const { profile, isAdmin, logout, setDemoUser } = useAuth();
+  const { profile, isAdmin, logout } = useAuth();
   const { settings } = useSettings();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [personaOpen, setPersonaOpen] = useState(false);
 
   const isActive = (path: string) => {
     if (path === '/' && location.pathname === '/') return true;
@@ -87,50 +86,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGetStarted }) => {
 
           {/* Action CTAs & Auth */}
           <div className="hidden lg:flex items-center space-x-3">
-            {/* Demo Persona Switcher (Convenient for quick evaluator testing) */}
-            <div className="relative">
-              <button
-                onClick={() => setPersonaOpen(!personaOpen)}
-                className="px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-medium text-slate-400 hover:text-slate-200 flex items-center space-x-1 cursor-pointer"
-                title="Switch test persona"
-              >
-                <span>Role: {profile?.role ? (isAdmin ? 'Admin' : 'Client') : 'Guest'}</span>
-                <ChevronDown className="w-3 h-3" />
-              </button>
-
-              {personaOpen && (
-                <div
-                  className="absolute right-0 mt-2 w-56 rounded-xl bg-slate-900 border border-slate-800 shadow-2xl p-2 z-50 text-xs"
-                  onClick={() => setPersonaOpen(false)}
-                >
-                  <div className="px-2 py-1 text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-                    Quick Role Switch (Demo)
-                  </div>
-                  <button
-                    onClick={() => logout()}
-                    className="w-full text-left px-2 py-1.5 rounded hover:bg-slate-800 text-slate-300 flex items-center justify-between"
-                  >
-                    <span>Guest Mode</span>
-                    {!profile && <span className="text-emerald-400">Active</span>}
-                  </button>
-                  <button
-                    onClick={() => setDemoUser('customer')}
-                    className="w-full text-left px-2 py-1.5 rounded hover:bg-slate-800 text-slate-300 flex items-center justify-between"
-                  >
-                    <span>Client (Rohit Sharma)</span>
-                    {profile?.role === 'customer' && <span className="text-emerald-400">Active</span>}
-                  </button>
-                  <button
-                    onClick={() => setDemoUser('admin')}
-                    className="w-full text-left px-2 py-1.5 rounded hover:bg-slate-800 text-slate-300 flex items-center justify-between"
-                  >
-                    <span>Admin ({AUTHORIZED_ADMIN_EMAIL.split('@')[0]})</span>
-                    {isAdmin && <span className="text-emerald-400">Active</span>}
-                  </button>
-                </div>
-              )}
-            </div>
-
             {/* Authenticated user links */}
             {profile ? (
               <div className="flex items-center space-x-2">
@@ -218,40 +173,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenGetStarted }) => {
           </nav>
 
           <div className="pt-3 border-t border-slate-800/80 space-y-2">
-            {/* Quick Demo Switcher on mobile */}
-            <div className="flex items-center justify-between py-1 text-xs text-slate-400">
-              <span>Demo Persona:</span>
-              <div className="space-x-1">
-                <button
-                  onClick={() => {
-                    logout();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-2 py-1 rounded bg-slate-900 text-[11px]"
-                >
-                  Guest
-                </button>
-                <button
-                  onClick={() => {
-                    setDemoUser('customer');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-2 py-1 rounded bg-slate-900 text-[11px]"
-                >
-                  Client
-                </button>
-                <button
-                  onClick={() => {
-                    setDemoUser('admin');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="px-2 py-1 rounded bg-slate-900 text-[11px]"
-                >
-                  Admin
-                </button>
-              </div>
-            </div>
-
             {profile ? (
               <div className="space-y-2">
                 {isAdmin ? (

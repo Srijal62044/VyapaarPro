@@ -4,7 +4,7 @@ import { dataService } from '../services/store';
 
 interface SettingsContextType {
   settings: AgencySettings;
-  updateSettings: (newSettings: AgencySettings) => Promise<boolean>;
+  updateSettings: (newSettings: AgencySettings) => Promise<{ success: boolean; error?: string }>;
   refreshSettings: () => Promise<void>;
   isLoading: boolean;
 }
@@ -12,7 +12,7 @@ interface SettingsContextType {
 const defaultSettings: AgencySettings = {
   name: 'VyapaarPro',
   tagline: 'High-Performance Digital Engineering for Modern Businesses',
-  email: 'contact@vyapaarpro.com',
+  email: 'kumarsrijal732@gmail.com',
   phone: '+91 98765 43210',
   whatsapp: '+91 98765 43210',
   address: 'Indiranagar 100ft Road, Bangalore, Karnataka 560038',
@@ -50,11 +50,24 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   useEffect(() => {
     loadSettings();
+
+    // Listen for custom settings update events across the app
+    const handleSettingsUpdate = (e: any) => {
+      if (e.detail) {
+        setSettings(e.detail);
+      }
+    };
+    window.addEventListener('vp_settings_updated', handleSettingsUpdate);
+    return () => window.removeEventListener('vp_settings_updated', handleSettingsUpdate);
   }, []);
 
-  const updateSettings = async (newSettings: AgencySettings): Promise<boolean> => {
+  const updateSettings = async (newSettings: AgencySettings): Promise<{ success: boolean; error?: string }> => {
     setSettings(newSettings);
-    return await dataService.saveSettings(newSettings);
+    const result = await dataService.saveSettings(newSettings);
+    if (!result.success && result.error) {
+      console.error('Settings save failure in database:', result.error);
+    }
+    return result;
   };
 
   return (

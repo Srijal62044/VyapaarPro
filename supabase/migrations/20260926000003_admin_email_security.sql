@@ -3,7 +3,7 @@
 -- Migration: 20260926000003_admin_email_security.sql
 -- ==============================================================================
 
--- 1. Create a secure configuration table / constant function for the authorized admin email
+-- 1. Create a secure configuration constant function for the authorized admin email
 CREATE OR REPLACE FUNCTION public.get_authorized_admin_email()
 RETURNS TEXT AS $$
 BEGIN
@@ -12,15 +12,19 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql IMMUTABLE SECURITY DEFINER;
 
--- 2. Update is_admin() helper function to verify BOTH the exact authorized email AND role
+-- 2. Update is_admin() helper function:
+-- Checks authenticated JWT email OR public.profiles record
 CREATE OR REPLACE FUNCTION public.is_admin()
 RETURNS BOOLEAN AS $$
 BEGIN
-  RETURN EXISTS (
-    SELECT 1 FROM public.profiles
-    WHERE id = auth.uid() 
-      AND lower(trim(email)) = lower(trim(public.get_authorized_admin_email()))
-      AND role IN ('admin', 'super_admin')
+  RETURN (
+    lower(trim(COALESCE(auth.jwt() ->> 'email', ''))) = lower(trim(public.get_authorized_admin_email()))
+    OR EXISTS (
+      SELECT 1 FROM public.profiles
+      WHERE id = auth.uid() 
+        AND lower(trim(email)) = lower(trim(public.get_authorized_admin_email()))
+        AND role IN ('admin', 'super_admin')
+    )
   );
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
@@ -29,11 +33,14 @@ $$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
 CREATE OR REPLACE FUNCTION public.is_super_admin()
 RETURNS BOOLEAN AS $$
 BEGIN
-  RETURN EXISTS (
-    SELECT 1 FROM public.profiles
-    WHERE id = auth.uid() 
-      AND lower(trim(email)) = lower(trim(public.get_authorized_admin_email()))
-      AND role = 'super_admin'
+  RETURN (
+    lower(trim(COALESCE(auth.jwt() ->> 'email', ''))) = lower(trim(public.get_authorized_admin_email()))
+    OR EXISTS (
+      SELECT 1 FROM public.profiles
+      WHERE id = auth.uid() 
+        AND lower(trim(email)) = lower(trim(public.get_authorized_admin_email()))
+        AND role = 'super_admin'
+    )
   );
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
@@ -87,8 +94,21 @@ CREATE TRIGGER trg_enforce_admin_role
   BEFORE INSERT OR UPDATE OF role, email ON public.profiles
   FOR EACH ROW EXECUTE FUNCTION public.enforce_authorized_admin_role();
 
--- 6. Retroactively synchronize existing profile rows:
--- Ensure only kumarsrijal732@gmail.com holds super_admin/admin, all others are customer
+-- 6. Retroactively synchronize existing accounts in auth.users & public.profiles:
+INSERT INTO public.profiles (id, email, full_name, role)
+SELECT 
+  id, 
+  email, 
+  COALESCE(raw_user_meta_data->>'full_name', email), 
+  'super_admin'
+FROM auth.users
+WHERE lower(trim(email)) = lower(trim(public.get_authorized_admin_email()))
+ON CONFLICT (id) DO UPDATE 
+SET 
+  role = 'super_admin',
+  email = EXCLUDED.email,
+  updated_at = now();
+
 UPDATE public.profiles
 SET role = 'super_admin'
 WHERE lower(trim(email)) = lower(trim(public.get_authorized_admin_email()));
@@ -96,3 +116,29 @@ WHERE lower(trim(email)) = lower(trim(public.get_authorized_admin_email()));
 UPDATE public.profiles
 SET role = 'customer'
 WHERE lower(trim(email)) != lower(trim(public.get_authorized_admin_email()));
+
+-- 7. Ensure Settings Table RLS Policies explicitly support Upsert for authorized admin
+ALTER TABLE public.settings ENABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Public read agency settings" ON public.settings;
+CREATE POLICY "Public read agency settings"
+  ON public.settings FOR SELECT
+  USING (true);
+
+DROP POLICY IF EXISTS "Admins manage settings" ON public.settings;
+DROP POLICY IF EXISTS "Admins insert settings" ON public.settings;
+DROP POLICY IF EXISTS "Admins update settings" ON public.settings;
+DROP POLICY IF EXISTS "Admins delete settings" ON public.settings;
+
+CREATE POLICY "Admins insert settings"
+  ON public.settings FOR INSERT
+  WITH CHECK (public.is_admin());
+
+CREATE POLICY "Admins update settings"
+  ON public.settings FOR UPDATE
+  USING (public.is_admin())
+  WITH CHECK (public.is_admin());
+
+CREATE POLICY "Admins delete settings"
+  ON public.settings FOR DELETE
+  USING (public.is_admin());

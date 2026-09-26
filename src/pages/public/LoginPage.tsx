@@ -5,7 +5,7 @@ import { useAuth, isAuthorizedAdminEmail, AUTHORIZED_ADMIN_EMAIL } from '../../c
 import { SEO } from '../../components/common/SEO';
 
 export const LoginPage: React.FC = () => {
-  const { login, setDemoUser } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const redirectUrl = searchParams.get('redirect');
@@ -37,15 +37,6 @@ export const LoginPage: React.FC = () => {
       setErrorMsg(err?.message || 'Login failed.');
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  const handleQuickDemo = (role: 'customer' | 'admin') => {
-    setDemoUser(role);
-    if (role === 'admin') {
-      navigate('/admin');
-    } else {
-      navigate('/app');
     }
   };
 
@@ -133,35 +124,7 @@ export const LoginPage: React.FC = () => {
             </button>
           </form>
 
-          {/* Quick Demo Access Bar */}
-          <div className="pt-4 border-t border-slate-800 space-y-2">
-            <span className="block text-center text-[10px] uppercase font-bold text-slate-500 tracking-wider">
-              One-Click Persona Testing
-            </span>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => handleQuickDemo('customer')}
-                className="py-2 px-3 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-xl text-[11px] font-medium text-indigo-300 flex items-center justify-center space-x-1.5 transition cursor-pointer"
-              >
-                <User className="w-3.5 h-3.5" />
-                <span>Client Persona</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickDemo('admin')}
-                className="py-2 px-3 bg-slate-950 hover:bg-slate-800 border border-violet-500/30 rounded-xl text-[11px] font-medium text-violet-300 flex items-center justify-center space-x-1.5 transition cursor-pointer"
-              >
-                <Shield className="w-3.5 h-3.5" />
-                <span>Authorized Admin</span>
-              </button>
-            </div>
-            <p className="text-[10px] text-center text-slate-500">
-              Admin persona logs in as <span className="font-mono text-slate-400">{AUTHORIZED_ADMIN_EMAIL}</span>
-            </p>
-          </div>
-
-          <div className="text-center text-xs text-slate-400">
+          <div className="pt-2 text-center text-xs text-slate-400">
             Don't have an account yet?{' '}
             <Link to="/register" className="text-indigo-400 font-semibold hover:underline">
               Create Client Account

@@ -27,7 +27,7 @@ export function generateReferenceCode(prefix: 'VP-REQ' | 'VP-PRJ' | 'VP-MSG'): s
 const DEFAULT_SETTINGS: AgencySettings = {
   name: 'VyapaarPro',
   tagline: 'High-Performance Digital Engineering for Modern Businesses',
-  email: 'contact@vyapaarpro.com',
+  email: 'kumarsrijal732@gmail.com',
   phone: '+91 98765 43210',
   whatsapp: '+91 98765 43210',
   address: 'Indiranagar 100ft Road, Bangalore, Karnataka 560038',
@@ -45,56 +45,56 @@ const DEFAULT_SETTINGS: AgencySettings = {
 
 const DEFAULT_CATEGORIES: ServiceCategory[] = [
   {
-    id: 'c1000000-0000-0000-0000-000000000001',
+    id: 'c0000000-0000-0000-0000-000000000001',
     name: 'Websites',
     slug: 'websites',
     description: 'High-converting, responsive and ultra-fast business and brand websites.',
     display_order: 1,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000002',
+    id: 'c0000000-0000-0000-0000-000000000002',
     name: 'Apps & Web Apps',
     slug: 'apps',
     description: 'Modern scalable progressive web apps, Android apps and SaaS platforms.',
     display_order: 2,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000003',
+    id: 'c0000000-0000-0000-0000-000000000003',
     name: 'E-Commerce',
     slug: 'e-commerce',
     description: 'Online shopping stores, payment-ready architectures and digital catalogues.',
     display_order: 3,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000004',
+    id: 'c0000000-0000-0000-0000-000000000004',
     name: 'Design & Branding',
     slug: 'design-branding',
     description: 'Bespoke UI/UX interface design, vector identity, logos and creative assets.',
     display_order: 4,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000005',
+    id: 'c0000000-0000-0000-0000-000000000005',
     name: 'Marketing & Growth',
     slug: 'marketing-growth',
     description: 'Strategic SEO, Google Business Profiles, social creatives and performance marketing.',
     display_order: 5,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000006',
+    id: 'c0000000-0000-0000-0000-000000000006',
     name: 'Business Solutions',
     slug: 'business-solutions',
     description: 'Interactive QR menus, digital catalogs, CRM setups and workflow automation.',
     display_order: 6,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000007',
+    id: 'c0000000-0000-0000-0000-000000000007',
     name: 'Technical Services',
     slug: 'technical-services',
     description: 'Domain/cloud deployment, database engineering, bug fixing and API integrations.',
     display_order: 7,
   },
   {
-    id: 'c1000000-0000-0000-0000-000000000008',
+    id: 'c0000000-0000-0000-0000-000000000008',
     name: 'Custom Solutions',
     slug: 'custom-solutions',
     description: 'End-to-end proprietary software, microservices and enterprise digital transformation.',
@@ -104,8 +104,8 @@ const DEFAULT_CATEGORIES: ServiceCategory[] = [
 
 const DEFAULT_SERVICES: ServiceItem[] = [
   {
-    id: 's1000000-0000-0000-0000-000000000001',
-    category_id: 'c1000000-0000-0000-0000-000000000001',
+    id: 'a0000000-0000-0000-0000-000000000001',
+    category_id: 'c0000000-0000-0000-0000-000000000001',
     category_name: 'Websites',
     name: 'Custom Business Website',
     slug: 'business-website',
@@ -119,7 +119,6 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     thumbnail_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     featured: true,
     published: true,
-    demo_url: 'https://demo.vyapaarpro.com/business',
     deliverables: [
       '5 to 10 Custom Web Pages',
       'Mobile & Tablet Fully Responsive',
@@ -141,8 +140,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000002',
-    category_id: 'c1000000-0000-0000-0000-000000000003',
+    id: 'a0000000-0000-0000-0000-000000000002',
+    category_id: 'c0000000-0000-0000-0000-000000000003',
     category_name: 'E-Commerce',
     name: 'Full-Featured E-Commerce Website',
     slug: 'ecommerce-website',
@@ -156,7 +155,6 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     thumbnail_url: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80',
     featured: true,
     published: true,
-    demo_url: 'https://demo.vyapaarpro.com/store',
     deliverables: [
       'Product & Category Management',
       'Shopping Cart & Wishlist',
@@ -175,8 +173,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000003',
-    category_id: 'c1000000-0000-0000-0000-000000000002',
+    id: 'a0000000-0000-0000-0000-000000000003',
+    category_id: 'c0000000-0000-0000-0000-000000000002',
     category_name: 'Apps & Web Apps',
     name: 'Custom Web Application / SaaS MVP',
     slug: 'custom-web-application',
@@ -190,7 +188,6 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     thumbnail_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     featured: true,
     published: true,
-    demo_url: 'https://demo.vyapaarpro.com/app',
     deliverables: [
       'Role-Based Authentication',
       'Interactive Dashboards & Data Tables',
@@ -209,8 +206,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000004',
-    category_id: 'c1000000-0000-0000-0000-000000000002',
+    id: 'a0000000-0000-0000-0000-000000000004',
+    category_id: 'c0000000-0000-0000-0000-000000000002',
     category_name: 'Apps & Web Apps',
     name: 'Android & PWA Mobile Application',
     slug: 'android-pwa-application',
@@ -233,8 +230,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000005',
-    category_id: 'c1000000-0000-0000-0000-000000000004',
+    id: 'a0000000-0000-0000-0000-000000000005',
+    category_id: 'c0000000-0000-0000-0000-000000000004',
     category_name: 'Design & Branding',
     name: 'UI/UX Design & Interactive Prototypes',
     slug: 'ui-ux-design',
@@ -257,8 +254,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000006',
-    category_id: 'c1000000-0000-0000-0000-000000000004',
+    id: 'a0000000-0000-0000-0000-000000000006',
+    category_id: 'c0000000-0000-0000-0000-000000000004',
     category_name: 'Design & Branding',
     name: 'Logo, Identity & Brand Kit',
     slug: 'logo-branding',
@@ -281,8 +278,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000007',
-    category_id: 'c1000000-0000-0000-0000-000000000005',
+    id: 'a0000000-0000-0000-0000-000000000007',
+    category_id: 'c0000000-0000-0000-0000-000000000005',
     category_name: 'Marketing & Growth',
     name: 'Local SEO & Google Business Setup',
     slug: 'seo-google-business',
@@ -305,8 +302,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000008',
-    category_id: 'c1000000-0000-0000-0000-000000000006',
+    id: 'a0000000-0000-0000-0000-000000000008',
+    category_id: 'c0000000-0000-0000-0000-000000000006',
     category_name: 'Business Solutions',
     name: 'Digital Menu & QR Business Catalog',
     slug: 'digital-menu-qr-solutions',
@@ -329,8 +326,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000009',
-    category_id: 'c1000000-0000-0000-0000-000000000007',
+    id: 'a0000000-0000-0000-0000-000000000009',
+    category_id: 'c0000000-0000-0000-0000-000000000007',
     category_name: 'Technical Services',
     name: 'Website Maintenance & Bug Fixing',
     slug: 'website-maintenance-bug-fixing',
@@ -353,8 +350,8 @@ const DEFAULT_SERVICES: ServiceItem[] = [
     ],
   },
   {
-    id: 's1000000-0000-0000-0000-000000000010',
-    category_id: 'c1000000-0000-0000-0000-000000000008',
+    id: 'a0000000-0000-0000-0000-000000000010',
+    category_id: 'c0000000-0000-0000-0000-000000000008',
     category_name: 'Custom Solutions',
     name: 'Enterprise Custom Digital Transformation',
     slug: 'enterprise-custom-solutions',
@@ -380,7 +377,7 @@ const DEFAULT_SERVICES: ServiceItem[] = [
 
 const DEFAULT_PORTFOLIO: PortfolioItem[] = [
   {
-    id: 'p1000000-0000-0000-0000-000000000001',
+    id: 'b0000000-0000-0000-0000-000000000001',
     title: 'Apex Logistics & Freight Web Portal',
     slug: 'apex-logistics-portal',
     description:
@@ -393,12 +390,11 @@ const DEFAULT_PORTFOLIO: PortfolioItem[] = [
       'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1200&q=80',
     ],
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
-    demo_url: 'https://apexlogistics-demo.vyapaarpro.com',
     published: true,
     created_at: new Date(Date.now() - 30 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000002',
+    id: 'b0000000-0000-0000-0000-000000000002',
     title: 'Kaveri Handlooms E-Commerce Store',
     slug: 'kaveri-handlooms-store',
     description:
@@ -411,12 +407,11 @@ const DEFAULT_PORTFOLIO: PortfolioItem[] = [
       'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80',
     ],
     technologies: ['React', 'Tailwind CSS', 'PostgreSQL', 'Cloudflare CDN'],
-    demo_url: 'https://kaveri-demo.vyapaarpro.com',
     published: true,
     created_at: new Date(Date.now() - 20 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000003',
+    id: 'b0000000-0000-0000-0000-000000000003',
     title: 'PulseHealth Clinic SaaS & Patient Queue',
     slug: 'pulsehealth-clinic-saas',
     description:
@@ -429,12 +424,11 @@ const DEFAULT_PORTFOLIO: PortfolioItem[] = [
       'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80',
     ],
     technologies: ['React', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'WebSockets'],
-    demo_url: 'https://pulsehealth-demo.vyapaarpro.com',
     published: true,
     created_at: new Date(Date.now() - 15 * 86400000).toISOString(),
   },
   {
-    id: 'p1000000-0000-0000-0000-000000000004',
+    id: 'b0000000-0000-0000-0000-000000000004',
     title: 'UrbanBites Restaurant QR Menu & Ordering',
     slug: 'urbanbites-qr-menu',
     description:
@@ -446,295 +440,16 @@ const DEFAULT_PORTFOLIO: PortfolioItem[] = [
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
     ],
     technologies: ['Progressive Web App', 'React', 'Tailwind CSS', 'QR Engine'],
-    demo_url: 'https://urbanbites-demo.vyapaarpro.com',
     published: true,
     created_at: new Date(Date.now() - 8 * 86400000).toISOString(),
   },
 ];
 
-// Initial mock clients for realistic testing
-const INITIAL_CLIENTS: UserProfile[] = [
-  {
-    id: 'u-client-01',
-    email: 'rohit.sharma@apexlogistics.in',
-    full_name: 'Rohit Sharma',
-    phone: '+91 98200 12345',
-    company_name: 'Apex Logistics & Freight',
-    role: 'customer',
-    created_at: new Date(Date.now() - 40 * 86400000).toISOString(),
-  },
-  {
-    id: 'u-client-02',
-    email: 'ananya.iyer@kaverihandlooms.com',
-    full_name: 'Ananya Iyer',
-    phone: '+91 97411 54321',
-    company_name: 'Kaveri Handlooms',
-    role: 'customer',
-    created_at: new Date(Date.now() - 25 * 86400000).toISOString(),
-  },
-  {
-    id: 'u-client-03',
-    email: 'dr.vikram@pulsehealth.org',
-    full_name: 'Dr. Vikram Seth',
-    phone: '+91 94480 87654',
-    company_name: 'PulseHealth Clinics',
-    role: 'customer',
-    created_at: new Date(Date.now() - 18 * 86400000).toISOString(),
-  },
-];
-
-// Realistic Initial Service Requests
-const INITIAL_REQUESTS: ServiceRequest[] = [
-  {
-    id: 'req-001',
-    reference_code: 'VP-REQ-A9B28D14',
-    user_id: 'u-client-01',
-    service_id: 's1000000-0000-0000-0000-000000000001',
-    service_name: 'Custom Business Website',
-    client_name: 'Rohit Sharma',
-    client_email: 'rohit.sharma@apexlogistics.in',
-    client_phone: '+91 98200 12345',
-    business_name: 'Apex Logistics',
-    requirements:
-      'We need a corporate freight website with a shipment calculator, fleet showcase, and lead capture form for high-volume enterprise inquiries.',
-    budget_range: '₹20,000 - ₹40,000',
-    preferred_contact_method: 'WhatsApp',
-    reference_links: 'https://dhl.com, https://delhivery.com',
-    status: 'In Progress',
-    internal_notes: 'Spoke with Rohit. Advance invoice 50% received via NEFT. Project created under VP-PRJ-7F10E290.',
-    payment_status: 'Partially Received',
-    created_at: new Date(Date.now() - 32 * 86400000).toISOString(),
-  },
-  {
-    id: 'req-002',
-    reference_code: 'VP-REQ-C44719EA',
-    user_id: 'u-client-02',
-    service_id: 's1000000-0000-0000-0000-000000000002',
-    service_name: 'Full-Featured E-Commerce Website',
-    client_name: 'Ananya Iyer',
-    client_email: 'ananya.iyer@kaverihandlooms.com',
-    client_phone: '+91 97411 54321',
-    business_name: 'Kaveri Handlooms',
-    requirements:
-      'Direct-to-consumer online saree store with 400 SKUs, high-definition zoom, color swatches, and automatic WhatsApp order confirmation.',
-    budget_range: '₹35,000 - ₹60,000',
-    preferred_contact_method: 'Phone Call',
-    status: 'Approved',
-    internal_notes: 'Product catalog spreadsheet received. Initial wireframe approved.',
-    payment_status: 'Partially Received',
-    created_at: new Date(Date.now() - 21 * 86400000).toISOString(),
-  },
-  {
-    id: 'req-003',
-    reference_code: 'VP-REQ-791F03BD',
-    user_id: null, // Guest submission
-    service_id: 's1000000-0000-0000-0000-000000000008',
-    service_name: 'Digital Menu & QR Business Catalog',
-    client_name: 'Manish Verma',
-    client_email: 'manish@vermacafes.com',
-    client_phone: '+91 99887 76655',
-    business_name: 'Verma Roastery & Cafe',
-    requirements:
-      'Contactless QR code menu for 25 tables. Need instant item disabling when items sell out during lunch rush.',
-    budget_range: '₹10,000 - ₹20,000',
-    preferred_contact_method: 'WhatsApp',
-    status: 'New',
-    internal_notes: 'High priority lead. Cafe opening on 1st of next month.',
-    payment_status: 'Not Discussed',
-    created_at: new Date(Date.now() - 2 * 86400000).toISOString(),
-  },
-];
-
-// Realistic Projects
-const INITIAL_PROJECTS: ProjectItem[] = [
-  {
-    id: 'prj-001',
-    reference_code: 'VP-PRJ-7F10E290',
-    client_id: 'u-client-01',
-    client_name: 'Rohit Sharma (Apex Logistics)',
-    client_email: 'rohit.sharma@apexlogistics.in',
-    request_id: 'req-001',
-    service_id: 's1000000-0000-0000-0000-000000000001',
-    title: 'Apex Logistics Corporate Portal & Calculator',
-    description: 'Corporate web portal, logistics route visualizer, and custom inquiry quote system.',
-    status: 'Development',
-    progress_percentage: 65,
-    start_date: new Date(Date.now() - 25 * 86400000).toISOString().split('T')[0],
-    expected_completion: new Date(Date.now() + 10 * 86400000).toISOString().split('T')[0],
-    notes: 'Development phase underway. API endpoints for rate calculator completed.',
-    internal_payment_status: 'Partially Received',
-    milestones: [
-      {
-        id: 'm1',
-        project_id: 'prj-001',
-        title: 'Requirements & Scope Finalization',
-        description: 'Approved site architecture, color palette, and freight calculator formulas.',
-        status: 'Completed',
-        completed_date: new Date(Date.now() - 20 * 86400000).toISOString().split('T')[0],
-        display_order: 1,
-      },
-      {
-        id: 'm2',
-        project_id: 'prj-001',
-        title: 'UI Design & Component Prototypes',
-        description: 'Figma mockups approved for desktop and mobile navigation.',
-        status: 'Completed',
-        completed_date: new Date(Date.now() - 14 * 86400000).toISOString().split('T')[0],
-        display_order: 2,
-      },
-      {
-        id: 'm3',
-        project_id: 'prj-001',
-        title: 'Frontend & Backend Integration',
-        description: 'React client connected with PostgreSQL backend and quote calculation engine.',
-        status: 'In Progress',
-        due_date: new Date(Date.now() + 5 * 86400000).toISOString().split('T')[0],
-        display_order: 3,
-      },
-      {
-        id: 'm4',
-        project_id: 'prj-001',
-        title: 'Testing & Core Web Vitals Optimization',
-        description: 'Cross-browser testing, mobile verification, and SSL certificate installation.',
-        status: 'Pending',
-        due_date: new Date(Date.now() + 9 * 86400000).toISOString().split('T')[0],
-        display_order: 4,
-      },
-      {
-        id: 'm5',
-        project_id: 'prj-001',
-        title: 'Final Deployment & Handoff',
-        description: 'DNS pointed to live production server, documentation and source repository handed over.',
-        status: 'Pending',
-        due_date: new Date(Date.now() + 12 * 86400000).toISOString().split('T')[0],
-        display_order: 5,
-      },
-    ],
-    updates: [
-      {
-        id: 'up1',
-        project_id: 'prj-001',
-        title: 'UI Design Phase Approved',
-        message: 'All mobile and desktop page templates have been reviewed and approved by client.',
-        created_at: new Date(Date.now() - 14 * 86400000).toISOString(),
-      },
-      {
-        id: 'up2',
-        project_id: 'prj-001',
-        title: 'Interactive Calculator Staging Online',
-        message: 'Staging preview deployed for rate calculation testing. Please test with sample pin codes.',
-        created_at: new Date(Date.now() - 4 * 86400000).toISOString(),
-      },
-    ],
-    deliverables: [
-      {
-        id: 'del1',
-        project_id: 'prj-001',
-        title: 'Staging Environment Link',
-        description: 'Live test environment password protected for review.',
-        url: 'https://staging-apex.vyapaarpro.com',
-        created_at: new Date(Date.now() - 4 * 86400000).toISOString(),
-      },
-    ],
-    created_at: new Date(Date.now() - 25 * 86400000).toISOString(),
-  },
-  {
-    id: 'prj-002',
-    reference_code: 'VP-PRJ-B3910A42',
-    client_id: 'u-client-03',
-    client_name: 'Dr. Vikram Seth (PulseHealth)',
-    client_email: 'dr.vikram@pulsehealth.org',
-    service_id: 's1000000-0000-0000-0000-000000000003',
-    title: 'PulseHealth Multi-Clinic Queue SaaS',
-    description: 'Patient token display screen, appointment booking portal, and doctor prescription portal.',
-    status: 'Completed',
-    progress_percentage: 100,
-    start_date: new Date(Date.now() - 60 * 86400000).toISOString().split('T')[0],
-    expected_completion: new Date(Date.now() - 10 * 86400000).toISOString().split('T')[0],
-    notes: 'Project successfully completed and delivered. Final payment settled.',
-    internal_payment_status: 'Received',
-    milestones: [
-      {
-        id: 'm201',
-        project_id: 'prj-002',
-        title: 'Requirements & Clinical Architecture',
-        status: 'Completed',
-        completed_date: new Date(Date.now() - 55 * 86400000).toISOString().split('T')[0],
-        display_order: 1,
-      },
-      {
-        id: 'm202',
-        project_id: 'prj-002',
-        title: 'Doctor Portal & Token Queue Engine',
-        status: 'Completed',
-        completed_date: new Date(Date.now() - 30 * 86400000).toISOString().split('T')[0],
-        display_order: 2,
-      },
-      {
-        id: 'm203',
-        project_id: 'prj-002',
-        title: 'Final Cloud Deployment & Training',
-        status: 'Completed',
-        completed_date: new Date(Date.now() - 10 * 86400000).toISOString().split('T')[0],
-        display_order: 3,
-      },
-    ],
-    updates: [
-      {
-        id: 'up201',
-        project_id: 'prj-002',
-        title: 'Production Rollout Successful',
-        message: 'System live across all 14 clinic branches with zero downtime.',
-        created_at: new Date(Date.now() - 10 * 86400000).toISOString(),
-      },
-    ],
-    deliverables: [
-      {
-        id: 'del201',
-        project_id: 'prj-002',
-        title: 'Production Application URL',
-        description: 'Main production access for clinic administrators and doctors.',
-        url: 'https://app.pulsehealth.org',
-        created_at: new Date(Date.now() - 10 * 86400000).toISOString(),
-      },
-      {
-        id: 'del202',
-        project_id: 'prj-002',
-        title: 'Admin Training & API Manual',
-        description: 'Comprehensive PDF documentation for clinic receptionist staff.',
-        url: 'https://docs.pulsehealth.org/manual.pdf',
-        created_at: new Date(Date.now() - 10 * 86400000).toISOString(),
-      },
-    ],
-    created_at: new Date(Date.now() - 60 * 86400000).toISOString(),
-  },
-];
-
-const INITIAL_MESSAGES: ContactMessage[] = [
-  {
-    id: 'msg-001',
-    reference_code: 'VP-MSG-88B12C4F',
-    name: 'Pooja Agarwal',
-    email: 'pooja@agarwaltextiles.com',
-    phone: '+91 98111 22334',
-    subject: 'Redesign of 10-year old export catalog site',
-    message: 'Hello VyapaarPro, we are looking to overhaul our textile export website. Need multi-currency display and inquiry basket.',
-    status: 'Unread',
-    created_at: new Date(Date.now() - 1 * 86400000).toISOString(),
-  },
-  {
-    id: 'msg-002',
-    reference_code: 'VP-MSG-55DA3109',
-    name: 'Karthik Raja',
-    email: 'karthik@rajacoffee.in',
-    phone: '+91 94433 22110',
-    subject: 'E-commerce setup for specialty coffee beans',
-    message: 'We sell roasted single-origin coffees. Need a clean web store with subscription delivery option.',
-    status: 'Read',
-    admin_notes: 'Followed up via WhatsApp. Requested SKU count and roast profile information.',
-    created_at: new Date(Date.now() - 5 * 86400000).toISOString(),
-  },
-];
+// Production lists: no fake demo accounts or dummy inquiries
+const INITIAL_CLIENTS: UserProfile[] = [];
+const INITIAL_REQUESTS: ServiceRequest[] = [];
+const INITIAL_PROJECTS: ProjectItem[] = [];
+const INITIAL_MESSAGES: ContactMessage[] = [];
 
 // Local Storage Keys
 const STORAGE_KEYS = {
@@ -748,6 +463,42 @@ const STORAGE_KEYS = {
   CLIENTS: 'vp_clients_v1',
   NOTIFICATIONS: 'vp_notifications_v1',
 };
+
+// Automatic cleanup of legacy demo records in client browser storage
+if (typeof window !== 'undefined') {
+  try {
+    const clientsRaw = localStorage.getItem(STORAGE_KEYS.CLIENTS);
+    if (clientsRaw && clientsRaw.includes('u-client-01')) {
+      localStorage.removeItem(STORAGE_KEYS.CLIENTS);
+    }
+    const requestsRaw = localStorage.getItem(STORAGE_KEYS.REQUESTS);
+    if (requestsRaw && requestsRaw.includes('VP-REQ-A9B28D14')) {
+      localStorage.removeItem(STORAGE_KEYS.REQUESTS);
+    }
+    const projectsRaw = localStorage.getItem(STORAGE_KEYS.PROJECTS);
+    if (projectsRaw && projectsRaw.includes('VP-PRJ-7F10E290')) {
+      localStorage.removeItem(STORAGE_KEYS.PROJECTS);
+    }
+    const messagesRaw = localStorage.getItem(STORAGE_KEYS.MESSAGES);
+    if (messagesRaw && messagesRaw.includes('VP-MSG-88B12C4F')) {
+      localStorage.removeItem(STORAGE_KEYS.MESSAGES);
+    }
+    const authRaw = localStorage.getItem('vp_current_user_v1');
+    if (authRaw && (authRaw.includes('u-client-01') || authRaw.includes('u-client-02') || authRaw.includes('u-client-03') || authRaw.includes('demo-'))) {
+      localStorage.removeItem('vp_current_user_v1');
+    }
+    const settingsRaw = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+    if (settingsRaw) {
+      const parsed = JSON.parse(settingsRaw);
+      if (parsed.email === 'contact@vyapaarpro.com') {
+        parsed.email = 'kumarsrijal732@gmail.com';
+        localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(parsed));
+      }
+    }
+  } catch (e) {
+    // Ignore storage errors in restricted contexts
+  }
+}
 
 // Safe JSON local storage helpers
 function readStorage<T>(key: string, fallback: T): T {
@@ -815,8 +566,9 @@ export const dataService = {
           .from('settings')
           .select('value')
           .eq('key', 'agency_profile')
-          .single();
+          .maybeSingle();
         if (!error && data?.value) {
+          writeStorage(STORAGE_KEYS.SETTINGS, data.value);
           return data.value as AgencySettings;
         }
       } catch (err) {
@@ -826,18 +578,34 @@ export const dataService = {
     return readStorage<AgencySettings>(STORAGE_KEYS.SETTINGS, DEFAULT_SETTINGS);
   },
 
-  async saveSettings(settings: AgencySettings): Promise<boolean> {
+  async saveSettings(settings: AgencySettings): Promise<{ success: boolean; error?: string }> {
     writeStorage(STORAGE_KEYS.SETTINGS, settings);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('vp_settings_updated', { detail: settings }));
+    }
     if (isSupabaseConfigured && supabase) {
       try {
-        await supabase
-          .from('settings')
-          .upsert({ key: 'agency_profile', value: settings, updated_at: new Date().toISOString() });
-      } catch (err) {
-        console.error('Supabase saveSettings error:', err);
+        const { data: sessionData } = await supabase.auth.getSession();
+        if (sessionData?.session?.user) {
+          const { error } = await supabase
+            .from('settings')
+            .upsert(
+              { key: 'agency_profile', value: settings, updated_at: new Date().toISOString() },
+              { onConflict: 'key' }
+            );
+          if (error) {
+            console.warn('Supabase remote saveSettings notice:', error.message);
+            return {
+              success: true, // Saved locally and active in app
+              error: `Saved in browser. Note: Supabase returned (${error.message}). Make sure to run the latest migration in Supabase SQL Editor.`,
+            };
+          }
+        }
+      } catch (err: any) {
+        console.warn('Supabase saveSettings network/auth notice:', err);
       }
     }
-    return true;
+    return { success: true };
   },
 
   // CATEGORIES

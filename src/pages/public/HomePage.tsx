@@ -357,7 +357,7 @@ export const HomePage: React.FC = () => {
                         rel="noreferrer"
                         className="text-xs text-slate-400 hover:text-slate-200 flex items-center space-x-1"
                       >
-                        <span>Demo Link</span>
+                        <span>Live Site</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
                     )}

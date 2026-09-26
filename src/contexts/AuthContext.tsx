@@ -30,7 +30,6 @@ interface AuthContextType {
   ) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
   updateProfile: (data: Partial<UserProfile>) => Promise<boolean>;
-  setDemoUser: (role: UserRole) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -289,34 +288,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     return true;
   };
 
-  // Demo user helper: specifically uses the authorized admin email for the admin persona
-  const setDemoUser = (targetRole: UserRole) => {
-    let demo: UserProfile;
-    if (targetRole === 'admin' || targetRole === 'super_admin') {
-      demo = {
-        id: 'admin-super-srijal',
-        email: AUTHORIZED_ADMIN_EMAIL, // Exactly kumarsrijal732@gmail.com
-        full_name: 'Srijal Kumar',
-        phone: '+91 98765 43210',
-        company_name: 'VyapaarPro Operations',
-        role: 'super_admin',
-        created_at: new Date().toISOString(),
-      };
-    } else {
-      demo = {
-        id: 'u-client-01',
-        email: 'rohit.sharma@apexlogistics.in',
-        full_name: 'Rohit Sharma',
-        phone: '+91 98200 12345',
-        company_name: 'Apex Logistics & Freight',
-        role: 'customer',
-        created_at: new Date().toISOString(),
-      };
-    }
-    setProfile(demo);
-    localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(demo));
-  };
-
   // Strict authorization enforcement:
   // isAdmin is ONLY true if:
   // 1. User profile exists
@@ -341,7 +312,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         register,
         logout,
         updateProfile,
-        setDemoUser,
       }}
     >
       {children}

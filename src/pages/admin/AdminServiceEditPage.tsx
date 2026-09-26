@@ -382,7 +382,7 @@ export const AdminServiceEditPage: React.FC = () => {
             />
           </div>
 
-          {/* Thumbnail & Demo Link */}
+          {/* Thumbnail & Live Website Link */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1">
@@ -398,13 +398,13 @@ export const AdminServiceEditPage: React.FC = () => {
             </div>
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1">
-                Live Sample Demo URL (Optional)
+                Live Website / Production URL (Optional)
               </label>
               <input
                 type="url"
                 value={demoUrl}
                 onChange={(e) => setDemoUrl(e.target.value)}
-                placeholder="https://demo.vyapaarpro.com/..."
+                placeholder="https://clientproject.com"
                 className="w-full px-3.5 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-100 focus:outline-none focus:border-violet-500"
               />
             </div>

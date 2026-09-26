@@ -20,19 +20,39 @@ export const AdminSettingsPage: React.FC = () => {
   const [form, setForm] = useState(settings);
   const [isSaving, setIsSaving] = useState(false);
   const [successMsg, setSuccessMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
   const [activeTab, setActiveTab] = useState<'profile' | 'database'>('profile');
+
+  // Synchronize form whenever settings finish loading or update
+  React.useEffect(() => {
+    if (settings) {
+      setForm(settings);
+    }
+  }, [settings]);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
     setSuccessMsg('');
+    setErrorMsg('');
 
     try {
-      await updateSettings(form);
-      setSuccessMsg('Agency profile and settings updated successfully.');
-      setTimeout(() => setSuccessMsg(''), 3000);
-    } catch (err) {
+      const res = await updateSettings(form);
+      if (res.success) {
+        if (res.error) {
+          // Informative notice if remote db warned but local persistence succeeded
+          setSuccessMsg('Settings updated and active in application.');
+          setErrorMsg(res.error);
+        } else {
+          setSuccessMsg('Agency profile and contact details saved successfully.');
+          setTimeout(() => setSuccessMsg(''), 4000);
+        }
+      } else {
+        setErrorMsg(res.error || 'Failed to update settings in database.');
+      }
+    } catch (err: any) {
       console.error(err);
+      setErrorMsg(err.message || 'Error updating settings');
     } finally {
       setIsSaving(false);
     }
@@ -80,6 +100,12 @@ export const AdminSettingsPage: React.FC = () => {
         <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs rounded-xl flex items-center space-x-2">
           <CheckCircle className="w-4 h-4" />
           <span>{successMsg}</span>
+        </div>
+      )}
+
+      {errorMsg && (
+        <div className="p-3 bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs rounded-xl flex items-center space-x-2">
+          <span>{errorMsg}</span>
         </div>
       )}
 

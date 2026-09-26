@@ -281,7 +281,7 @@ export const ServiceDetailPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Sample Demo button if available */}
+              {/* Project Website Link if available */}
               {service.demo_url && (
                 <a
                   href={service.demo_url}
@@ -290,7 +290,7 @@ export const ServiceDetailPage: React.FC = () => {
                   className="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold text-center transition flex items-center justify-center space-x-2"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
-                  <span>View Live Sample Demo</span>
+                  <span>Visit Live Project</span>
                 </a>
               )}
 

@@ -91,7 +91,7 @@ export const ServicesPage: React.FC = () => {
             Explore Digital Services
           </h1>
           <p className="mt-3 text-sm sm:text-base text-slate-400">
-            Select a service to view deliverables, timeline, sample demos, and pricing models. No online payments required — submit requirements to receive a structured scope review.
+            Select a service to view deliverables, timeline, technical specifications, and transparent pricing. No online payments required — submit requirements to receive a structured scope review.
           </p>
         </div>
 

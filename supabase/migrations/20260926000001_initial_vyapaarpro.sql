@@ -508,10 +508,18 @@ CREATE POLICY "Public read agency settings"
   ON public.settings FOR SELECT
   USING (true);
 
-CREATE POLICY "Admins manage settings"
-  ON public.settings FOR ALL
+CREATE POLICY "Admins insert settings"
+  ON public.settings FOR INSERT
+  WITH CHECK (public.is_admin());
+
+CREATE POLICY "Admins update settings"
+  ON public.settings FOR UPDATE
   USING (public.is_admin())
   WITH CHECK (public.is_admin());
+
+CREATE POLICY "Admins delete settings"
+  ON public.settings FOR DELETE
+  USING (public.is_admin());
 
 -- 10. Notifications
 ALTER TABLE public.notifications ENABLE ROW LEVEL SECURITY;
