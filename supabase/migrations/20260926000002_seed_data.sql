@@ -12,9 +12,9 @@ VALUES (
     "name": "VyapaarPro",
     "tagline": "Crafting High-Performance Digital Solutions for Modern Businesses",
     "email": "contact@vyapaarpro.com",
-    "phone": "+91 98765 43210",
-    "whatsapp": "+91 98765 43210",
-    "address": "Bangalore & Delhi NCR, India",
+    "phone": "+91 6200614862",
+    "whatsapp": "+91 6200614862",
+    "address": "Patna , Bihar , India",
     "description": "VyapaarPro is an elite digital engineering & creative agency. We build bespoke business websites, custom web applications, mobile apps, e-commerce systems, and full-spectrum digital branding to help enterprises scale sustainably.",
     "footer_text": "© 2026 VyapaarPro Digital Agency. All rights reserved. Transforming business ideas into production reality.",
     "social": {
